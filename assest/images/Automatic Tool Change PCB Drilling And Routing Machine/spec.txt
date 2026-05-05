@@ -1,0 +1,16 @@
+₹ 350000 / Piece 
+Spindle Count	1 spindle
+Max Drill Size	6 mm
+Tool Change System	Automatic Tool Change
+Spindle Speed	60000 rpm
+Drill Bit Size	Micro Drilling
+Minimum Drill Dia	0.5 mm
+Positioning Accuracy	+-0.02mm
+Machine Structure	SOLID MS Y Base & MS
+Machine Weight	500 kg
+Power Consumption	3 KW
+Input Power Supply	Single Phase; 230 Volt; 16A
+Machine Dimension	500 X 500 X 600 mm
+Minimum order quantity: 1 Piece
+
+An automatic tool change PCB drilling and routing machine is an advanced piece of equipment used in the manufacturing of printed circuit boards (PCBs). This type of machine combines the functionalities of both drilling and routing processes, offering versatility and efficiency in PCB production.

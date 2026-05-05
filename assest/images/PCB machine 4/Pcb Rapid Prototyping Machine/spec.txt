@@ -1,0 +1,19 @@
+₹ 350000 / Piece
+Process Type	Drilling
+Max PCB Size	300×300 mm
+Min Track Width	0.15 mm
+Machine Material	Mild Steel
+Spindle Speed	60000 rpm
+Axis Count	3 Axis
+Production Capacity	10 Machine
+Power Consumption	1 KW
+Brand	SM Automation
+Phase	Single Phase
+Power Source	AC
+Voltage	230 V
+Country of Origin	Made in India
+Automation Grade	Automatic
+Tool Change	Manual
+Minimum order quantity: 1 Piece
+
+This is an environment friendly PCB Machine for each stage of PCB making and fabrication process, from design verification to structuring and board assembly. 

@@ -1,0 +1,20 @@
+₹ 200000 / Piece 
+Machine Type	Drilling
+Working Width	400 mm
+Operation Mode	Automatic
+Automation Grade	Semi Automatic
+Working Area	300x300 mm
+Automation	Fully Automatic
+Accuracy	Standard Accuracy
+Etching Media	Ferric Chloride
+Max PCB Thickness	3.2 mm
+Heating Type	Electric
+Usage	Mass Production
+Type	Etching Machine
+Usage/Application	PCB costic
+Suitable For	Double Side PCB
+Design	Standard
+Phase	Single Phase
+Brand	S.M. AUTOMATION
+Country of Origin	Made in India
+These machines apply protective coatings to PCBs to safeguard them against environmental factors such as moisture, dust, and chemicals.

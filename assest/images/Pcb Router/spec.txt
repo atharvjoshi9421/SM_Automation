@@ -1,0 +1,25 @@
+₹ 1050000 / Piece 
+
+Working Area	300x300 mm
+Spindle Speed	60000 rpm
+Automation Grade	Automatic
+Max PCB Thickness	3.2 mm
+Clamping Type	Pin Fixture
+Axis Count	3 axis
+Model Name/Number	Sm800n
+Max Speed	20m per minute
+Country of Origin	Made in India
+65'' 55'' 46''	500kg
+Minimum order quantity: 01 Piece
+
+Sm800n
+350x380mm working per spindle
+Easy assembly PCB router machine
+Min router 1mm max 3.2mm
+Spindle rpm 24k 40k 60k
+Xyz motor servo motors
+Hiwin high speed Ballscrew and nut
+Positional accuracy 0.02mm
+Universal PCB router machine
+Pc base controller
+Usb data transfer

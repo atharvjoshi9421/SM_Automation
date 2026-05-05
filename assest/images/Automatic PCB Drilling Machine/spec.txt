@@ -1,0 +1,32 @@
+₹ 375000 / Piece
+Operation Mode	CNC
+Max Drill Size	3.2 mm
+Table Size	300x300 mm
+Spindle Count	1 spindle
+Spindle Speed	60000 rpm
+Automation Grade	Automatic
+Usage/Application	PCB Drilling
+Body Material	MS
+Machine Capacity	22 mm/min
+Power Rating	4 kW
+Country of Origin	Made in India
+Voltage	440 V
+Frequency	50 Hz
+We are engaged in offering Automatic PCB Drilling Machine to our clients. All our products range has been widely appreciated by our clients.
+Product Details:
+Minimum Order Quantity: 1 Piece
+Usage/Application: PCB DRILLING AND ROUTING
+Brand: s m automation
+Fixturing Arrangement: Standard Dowel Pin Fixture
+Hit Rate: 100-120 Hits Per Minute
+Maximum Rapid Rate: 15 m/min
+Mechanical Motion System: Linear Guide Ways With Precision Balls Crew
+Positioning Precision: 15 microns
+Working Area: 300 x 300 mm
+Power Consumption: 1.2 kW
+Tool Change: Manual
+Electrical Motion System: Servo Motor
+Spindle Speed: 60000 RPM
+CNC pcb Drilling- Routing sytem . Equipped with two 60K RPM spindles , this system delivers high quality drilling and high volume throughput. This is our manual tool changing variant int multiple spindle system catagory.
+CNC software makes this system user friendly and can be operated by any man.
+This system gurantees throughput of 400000 drills per day.

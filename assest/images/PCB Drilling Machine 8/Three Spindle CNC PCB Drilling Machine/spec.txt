@@ -1,0 +1,30 @@
+Rs  850000 / Piece
+
+
+Power Rating	5.0kW
+Usage/Application	PCB Drilling
+Brand	S M Automation
+Machine Capacity	28 mm/min
+Country of Origin	Made in India
+Voltage	480 V
+Frequency	50 Hz
+Number Of Spindle	Three
+Product Details:
+Minimum Order Quantity: 1 Piece
+Usage/Application: PCB DRILLING AND ROUTING
+Brand: s m automation
+Fixturing Arrangement: Standard Dowel Pin Fixture
+Hit Rate: 100-120 Hits Per Minute
+Maximum Rapid Rate: 15 m/min
+Mechanical Motion System: Linear Guide Ways With Precision Balls Crew
+Positioning Precision: 15 microns
+Working Area: 300 x 300 mm
+Power Consumption: 1.2 kW
+Tool Change: Manual
+Electrical Motion System: Servo Motor
+Spindle Speed: 60000 RPM
+CNC pcb Drilling- Routing sytem . Equipped with two 60K RPM spindles , this system delivers high quality drilling and high volume throughput. This is our manual tool changing variant int multiple spindle system catagory.
+CNC software makes this system user friendly and can be operated by any man.
+This system gurantees throughput of 400000 drills per day.
+
+We are engaged in offering Three Spindle CNC PCB Drilling Machine to our clients. All our products range has been widely appreciated by our clients.

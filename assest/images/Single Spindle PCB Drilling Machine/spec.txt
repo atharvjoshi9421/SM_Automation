@@ -1,0 +1,19 @@
+₹ 350000 / Piece 
+Operation Mode	CNC
+Max Drill Size	6 mm
+Table Size	300x300 mm
+Spindle Count	1 spindle
+Tool Change System	Manual Tool Change
+Spindle Speed	40000 rpm
+Drill Bit Size	Micro Drilling
+Usage/Application	Industrial
+Body Material	Aluminium
+Brand	Indian Brand
+Machine Type	Automatic
+Voltage	220 V
+Finishing	Powder Coated
+Power	1.5kw
+Current	8A
+Minimum order quantity: 1 Piece
+
+A single-spindle PCB drilling machine is a fundamental piece of equipment used in the manufacturing process of printed circuit boards (PCBs). 

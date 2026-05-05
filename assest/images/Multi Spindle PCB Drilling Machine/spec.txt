@@ -1,0 +1,20 @@
+₹ 750000 / Piece 
+Operation Mode	CNC
+Max Drill Size	6 mm
+Table Size	450x600 mm
+Spindle Count	3 spindle
+Automation	Fully Automatic
+Tool Change System	Automatic Tool Change
+Spindle Speed	60000 rpm
+Automation Grade	Automatic
+Drill Bit Size	Micro Drilling
+Usage/Application	Industrial
+Body Material	Aluminum, Mild Steel, Stainless Steel
+Hit Rate	120
+Maximum Rapid Rate	1500
+Mechanical Motion System	Ball screw and rail
+Voltage	220v
+Finishing	Polished
+Minimum order quantity: 1 Piece
+
+A multi-spindle PCB drilling machine is a specialized piece of equipment used in the manufacturing of printed circuit boards (PCBs) to drill holes for mounting electronic components and creating interconnections between layers. 

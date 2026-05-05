@@ -1,0 +1,23 @@
+₹ 450000 / Piece 
+Spindle Count	2 spindle
+Operation Mode	CNC
+Table Size	500x400 mm
+Max Drill Size	6 mm
+Automation	Fully Automatic
+Tool Change System	Manual Tool Change
+Spindle Speed	60000 rpm
+Automation Grade	Fully automatic
+Drill Bit Size	Micro Drilling
+Usage/Application	Printed Circuit board drilling machine
+Minimum Drill Dia	0.3mm
+Body Material	Ms casting
+Machine Capacity	1
+Drilling Accuracy	10 micron
+Power Rating	230vac
+Drilling Speed	200 hole per minute
+Model Name/Number	SMA-4050-2S
+Country of Origin	Made in India
+H1250-W1250-L1250	500kg
+Minimum order quantity: 01 Piece
+
+Brand: S m automation Working 400x500mm Accuracy 10 micron Spindle 24k and 60k rpm Spindle power 0.8kw to 3.2kw Motion controller mach3/USB

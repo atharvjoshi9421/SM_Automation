@@ -1,0 +1,15 @@
+₹ 380000 / Piece 
+
+Working Area	400x400 mm
+Spindle Speed	40000 rpm
+Max PCB Thickness	3.2 mm
+Clamping Type	Mechanical
+Axis Count	3 axis
+Usage/Application	Industrial
+Power Rating	2.2kw
+Current	8A
+Finishing	Powder Coated
+Voltage	220v
+Automation Grade	Automatic
+Automation	Semi-Automatic
+A PCB routing machine, also known as a PCB depanelizer or PCB separator, is used in electronics manufacturing to separate individual printed circuit boards (PCBs) from a larger panel.

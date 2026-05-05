@@ -1,0 +1,14 @@
+₹ 250000 / Piece 
+Machine Type	Etching
+Operation Mode	Semi Automatic
+Working Area	450x600 mm
+Automation	Semi-Automatic
+Suitable For	Double Side PCB, Single Side PCB
+Phase	Three Phase
+Usage	Mass Production
+Type	Etching Machine
+Usage/Application	PCB developing
+Country of Origin	Made in India
+Minimum order quantity: 01 Piece
+
+A PCB developing machine is used in the manufacturing process of printed circuit boards (PCBs) to develop the circuit patterns on the board.

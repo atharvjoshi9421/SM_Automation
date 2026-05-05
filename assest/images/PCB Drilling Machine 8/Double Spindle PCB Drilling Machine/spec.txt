@@ -1,0 +1,37 @@
+₹ 350000 / Piece
+Operation Mode	CNC
+Spindle Speed	60000 rpm
+Max Drill Size	3.2 mm
+Tool Change System	Automatic Tool Change
+Table Size	400x400 mm
+Spindle Count	1 spindle
+Automation Grade	Automatic
+Drill Bit Size	Micro Drilling
+Usage/Application	PCB Drilling
+Machine Capacity	25 mm/min
+Body Material	MS
+Power Rating	5 kW
+Country of Origin	Made in India
+Number of Spindle	Double
+Voltage	480 V
+Frequency	50 Hz
+Product Details:
+Minimum Order Quantity: 1 Piece
+Usage/Application: PCB DRILLING AND ROUTING
+Brand: s m automation
+Fixturing Arrangement: Standard Dowel Pin Fixture
+Hit Rate: 100-120 Hits Per Minute
+Maximum Rapid Rate: 15 m/min
+Mechanical Motion System: Linear Guide Ways With Precision Balls Crew
+Positioning Precision: 15 microns
+Working Area: 300 x 300 mm
+Power Consumption: 1.2 kW
+Tool Change: Manual
+Electrical Motion System: Servo Motor
+Spindle Speed: 60000 RPM
+CNC pcb Drilling- Routing sytem . Equipped with two 60K RPM spindles , this system delivers high quality drilling and high volume throughput. This is our manual tool changing variant int multiple spindle system catagory.
+CNC software makes this system user friendly and can be operated by any man.
+This system gurantees throughput of 400000 drills per day.
+Standard Accessories:
+Spanner and Allen key Set 
+Optional Accessories

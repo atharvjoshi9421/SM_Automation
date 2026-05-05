@@ -1,0 +1,20 @@
+₹ 250000 / Piece 
+Operation Mode	CNC
+Automation	Fully Automatic
+Tool Change System	Automatic Tool Change
+Spindle Speed	60000 rpm
+Automation Grade	Automatic
+Type	Pcb drilling machine
+Drill Bit Size	Micro Drilling
+Usage/Application	Printed Curcits Bords manufacturing units
+Minimum Drill Dia	0.3mm
+Body Material	Ms and casting
+Machine Capacity	2
+Power Rating	230v ac
+Drilling Accuracy	0.005
+Drilling Speed	250 hole per minute
+Model Name/Number	SMA/ATC-4050DR
+1500x1200x1200mm	550kg
+Minimum order quantity: 01 Piece
+
+Fully automatic PCB drilling machine Spindle 1.8kw 60krpm water cool Automatic drill change Linear 10 tool magzine Working area xyz 400x500x100mmDrive system servo motor and driver Machine structure ms /alluminium and casting Without heavy sheet metal with powder coating Machine with standard enclosure Make in India By s m automation

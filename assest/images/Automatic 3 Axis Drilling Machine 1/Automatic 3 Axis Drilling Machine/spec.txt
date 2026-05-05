@@ -1,0 +1,94 @@
+₹ 300000 / Piece 
+Axis Count	3 Axis
+Max Drill Diameter	Up to 10 mm
+Table Size	500×300 mm
+Spindle Speed	Above 8000 rpm
+Spindle Taper	Er20
+Controller Brand	Mach3
+Minimum order quantity: 1 Piece
+
+Parameter:
+
+• X-axis Traveling
+
+400mm
+
+• Y-axis traveling
+
+500mm
+
+• X-axis working stroke
+
+150mm
+
+• Y-axis working stroke
+
+500mm
+
+• X-axis feed rate
+
+0~80m/min
+
+• Y-axis feed rate
+
+0~20m/min
+
+• X-axis positioning accuracy
+
+±0.01mm
+
+• Y-axis positioning accuracy
+
+±0.01mm
+
+• Z-axis traveling
+
+150mm
+
+• Repeat location accuracy
+
+±0.02mm
+
+• Z-axis feed rate
+
+0~20m/min
+
+• Roughness
+
+Ra 6.3 um
+
+• Z-axis positioning accuracy
+
+±0.02mm
+
+• Spindle Speed
+
+0~60000rpm
+
+• Z-axis working stroke
+
+150mm
+
+• Machinery Weight
+
+450kg
+
+• Spindle Power
+
+3.5kW
+
+• Total Power of Machine
+
+3.5kW
+
+• Power Specification
+
+220V/50Hz
+
+• Machine Size
+
+1500×1500×1500mm
+
+• Working Pressure
+
+0.6～0.8MPa

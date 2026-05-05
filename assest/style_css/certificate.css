@@ -1,0 +1,253 @@
+/* ==========================================================================
+   VARIABLES & SECTION SETUP
+   ========================================================================== */
+:root {
+    --cert-bg: #f8f9fa;
+    --cert-card-bg: #ffffff;
+    --cert-dark: #1a1c1e;
+    --cert-text: #2d3436;
+    --cert-muted: #636e72;
+    --cert-accent: #0056b3; /* Industrial Blue */
+    --cert-accent-light: rgba(0, 86, 179, 0.1);
+    --cert-border: #e9ecef;
+    --cert-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --cert-shadow-hover: 0 20px 40px rgba(0, 86, 179, 0.15);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.page-content {
+    background-color: var(--cert-bg);
+    padding: 80px 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cert-text);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   HEADER & INTRO (Animated)
+   ========================================================================== */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeDownCert 0.8s ease-out forwards;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cert-dark);
+    margin-bottom: 15px;
+}
+
+.section-divider {
+    height: 4px;
+    width: 60px;
+    background-color: var(--cert-accent);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.certificate-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    animation: fadeUpCert 0.8s ease-out 0.2s forwards;
+    opacity: 0; /* Hidden before animation */
+}
+
+.section-kicker {
+    display: inline-block;
+    color: var(--cert-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    background: var(--cert-accent-light);
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+.certificate-intro h2 {
+    font-size: 2rem;
+    color: var(--cert-dark);
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.certificate-intro p {
+    font-size: 1.1rem;
+    color: var(--cert-muted);
+}
+
+/* ==========================================================================
+   CERTIFICATES GRID & CARDS
+   ========================================================================== */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.certificate-card {
+    background: var(--cert-card-bg);
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: var(--cert-shadow);
+    border: 1px solid var(--cert-border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    opacity: 0; /* Hidden before animation */
+}
+
+/* Staggered Animations for the Cards */
+.certificate-card:nth-child(1) { animation: fadeUpCert 0.8s ease-out 0.4s forwards; }
+.certificate-card:nth-child(2) { animation: fadeUpCert 0.8s ease-out 0.6s forwards; }
+.certificate-card:nth-child(3) { animation: fadeUpCert 0.8s ease-out 0.8s forwards; }
+
+/* Subtle watermark background for the cards */
+.certificate-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--cert-accent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--cert-shadow-hover);
+    border-color: transparent;
+}
+
+.certificate-card:hover::before {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   CERTIFICATE MARK (The Official Seal)
+   ========================================================================== */
+.certificate-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: var(--cert-card-bg);
+    color: var(--cert-accent);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    border: 3px solid var(--cert-accent-light);
+    box-shadow: 0 0 0 8px rgba(0, 86, 179, 0.05); /* Double ring effect */
+    transition: var(--transition);
+}
+
+.certificate-card:hover .certificate-mark {
+    background: var(--cert-accent);
+    color: #ffffff;
+    border-color: var(--cert-accent);
+    box-shadow: 0 0 0 8px rgba(0, 86, 179, 0.2);
+    transform: scale(1.1);
+}
+
+.certificate-card h3 {
+    font-size: 1.3rem;
+    color: var(--cert-dark);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.certificate-card p {
+    font-size: 0.95rem;
+    color: var(--cert-muted);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.certificate-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes fadeUpCert {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDownCert {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Laptop / Small Desktop */
+@media (max-width: 1024px) {
+    .certificates-grid {
+        gap: 20px;
+    }
+    .certificate-card {
+        padding: 40px 20px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
+    
+    /* Center the last card if it's an odd number (3 cards) */
+    .certificate-card:nth-child(3) {
+        grid-column: span 2; 
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    .certificate-intro h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile Phone */
+@media (max-width: 576px) {
+    .certificates-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+    
+    /* Reset the span from the tablet view */
+    .certificate-card:nth-child(3) {
+        grid-column: span 1;
+        max-width: 100%;
+    }
+
+    .certificate-intro h2 {
+        font-size: 1.5rem;
+    }
+    
+    .certificate-card {
+        padding: 30px 20px;
+    }
+    
+    .certificate-mark {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+    }
+}

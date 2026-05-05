@@ -1,0 +1,215 @@
+/* ==========================================================================
+   PACKAGING VARIABLES (Maps to your inline HTML variables)
+   ========================================================================== */
+:root {
+    /* These map directly to the variables in your HTML style tags */
+    --color-bg-light: #ffffff;
+    --color-text-dark: #1a1c1e;
+    --color-text-body: #636e72;
+    
+    /* Specific variables for this section */
+    --pack-bg: #f8f9fa;
+    --pack-accent: #0056b3; /* Industrial Blue */
+    --pack-border: #e9ecef;
+    --pack-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --pack-shadow-hover: 0 15px 40px rgba(0, 86, 179, 0.12);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ==========================================================================
+   BASE SECTION STYLING
+   ========================================================================== */
+.page-content {
+    background-color: var(--pack-bg);
+    padding: 80px 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Prevents horizontal scroll during animations */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeDownPack 0.8s ease-out forwards;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+}
+
+.section-divider {
+    height: 4px;
+    width: 60px;
+    background-color: var(--pack-accent);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Content Intro */
+.content-section > h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+    animation: fadeUpPack 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.content-section > p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+    color: var(--color-text-body);
+    line-height: 1.6;
+    animation: fadeUpPack 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+/* ==========================================================================
+   PACKAGING CARDS (Overriding Inline Styles via !important)
+   ========================================================================== */
+.detail-card.process-card {
+    /* Enhancing the inline styles safely */
+    box-shadow: var(--pack-shadow);
+    border: 1px solid var(--pack-border);
+    position: relative;
+    transition: var(--transition) !important;
+    opacity: 0; /* Hidden before animation */
+    /* Add a blue accent line at the top that starts invisible */
+    border-top: 3px solid transparent; 
+}
+
+/* Hover Lift Effect */
+.detail-card.process-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: var(--pack-shadow-hover) !important;
+    border-top: 3px solid var(--pack-accent) !important;
+}
+
+/* Staggered Animations for Cards */
+.detail-card:nth-child(1) { animation: fadeUpPack 0.8s ease-out 0.4s forwards; }
+.detail-card:nth-child(2) { animation: fadeUpPack 0.8s ease-out 0.6s forwards; }
+.detail-card:nth-child(3) { animation: fadeUpPack 0.8s ease-out 0.8s forwards; }
+
+/* ==========================================================================
+   IMAGES & VISUALS
+   ========================================================================== */
+.process-visual {
+    width: 100%;
+    height: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    background: #eaeaea; /* Placeholder background */
+}
+
+/* Industrial Blue Tint over images */
+.process-visual::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--pack-accent);
+    opacity: 0.15;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+/* Remove tint and zoom image on hover */
+.detail-card.process-card:hover .process-visual::after {
+    opacity: 0;
+}
+
+.process-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.detail-card.process-card:hover .process-img {
+    transform: scale(1.1);
+}
+
+/* Typography Inside Cards */
+.detail-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.detail-card p {
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   ANIMATION KEYFRAMES
+   ========================================================================== */
+@keyframes fadeUpPack {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDownPack {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Overriding Inline Grid)
+   ========================================================================== */
+
+/* Tablet View */
+@media (max-width: 992px) {
+    .packaging-details {
+        /* Forces 2 columns instead of auto-fit, overriding inline HTML */
+        grid-template-columns: repeat(2, 1fr) !important; 
+    }
+    
+    /* Since there are 3 cards, center the 3rd one on the bottom row */
+    .detail-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+/* Phone View */
+@media (max-width: 768px) {
+    .packaging-details {
+        /* Forces 1 column, overriding inline HTML */
+        grid-template-columns: 1fr !important; 
+    }
+    
+    /* Reset the span from the tablet view */
+    .detail-card:nth-child(3) {
+        grid-column: span 1;
+        max-width: 100%;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 576px) {
+    .page-content {
+        padding: 50px 0;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .content-section > h2 {
+        font-size: 1.5rem;
+    }
+    .process-visual {
+        height: 200px;
+    }
+}

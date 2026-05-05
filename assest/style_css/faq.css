@@ -1,0 +1,177 @@
+    /* =========================================
+           MODERN MINIMALIST EDGE THEME VARIABLES
+           ========================================= */
+        :root {
+            --color-primary: #2563eb; /* Electric Blue */
+            --color-bg-white: #ffffff;
+            --text-heading: #0f172a;
+            --text-body: #475569;
+            --border-color: #e2e8f0;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 30px -5px rgba(37, 99, 235, 0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--color-bg-white); /* Pure White Background */
+            color: var(--text-heading);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px; /* Kept narrower for optimal reading width on FAQs */
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .page-content {
+            padding: 100px 0;
+        }
+
+        /* =========================================
+           PURE CSS LOAD ANIMATIONS
+           ========================================= */
+        .gs-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .gs-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           HEADER STYLES
+           ========================================= */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin: 0 0 20px 0;
+            letter-spacing: -1px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           FAQ ACCORDION OVERRIDES
+           ========================================= */
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 16px; /* Spacing between items */
+        }
+
+        .faq-item {
+            background: var(--color-bg-white) !important;
+            border: 1px solid var(--border-color) !important;
+            border-left: 4px solid transparent !important; /* Invisible left border for hover effect */
+            border-radius: 12px !important;
+            box-shadow: var(--shadow-subtle) !important;
+            margin-bottom: 0 !important; /* Handled by gap above */
+            transition: var(--transition) !important;
+            overflow: hidden !important;
+        }
+
+        /* Hover Effect */
+        .faq-item:hover {
+            border-left-color: var(--color-primary) !important;
+            box-shadow: var(--shadow-hover) !important;
+            transform: translateX(6px) !important;
+        }
+
+        /* Active/Open State */
+        .faq-item.active {
+            border-left-color: var(--color-primary) !important;
+            box-shadow: var(--shadow-hover) !important;
+        }
+
+        /* =========================================
+           QUESTION BUTTON OVERRIDES
+           ========================================= */
+        .faq-question {
+            background: transparent !important;
+            color: var(--text-heading) !important;
+            font-size: 1.15rem !important;
+            font-weight: 600 !important;
+            padding: 24px 30px !important;
+            transition: color 0.3s ease !important;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--color-primary) !important;
+        }
+
+        /* Adding the animated + and - icons via CSS */
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            font-weight: 400;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        /* =========================================
+           ANSWER PANEL OVERRIDES & ANIMATION
+           ========================================= */
+        .faq-answer {
+            max-height: 0; /* Hides the answer by default */
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Animates open */
+            opacity: 1;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 24px 30px !important;
+            color: var(--text-body) !important;
+            background: transparent !important;
+            font-size: 1.05rem !important;
+            margin: 0 !important;
+        }
+
+        /* =========================================
+           RESPONSIVE BREAKPOINTS
+           ========================================= */
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 60px 0;
+            }
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            .faq-question {
+                font-size: 1.05rem !important;
+                padding: 20px !important;
+            }
+            .faq-answer p {
+                padding: 0 20px 20px 20px !important;
+                font-size: 0.95rem !important;
+            }
+        }

@@ -1,0 +1,223 @@
+  /* =========================================
+           MODERN GRADIENT TECH THEME VARIABLES
+           ========================================= */
+        :root {
+            --grad-start: #06b6d4; /* Bright Cyan */
+            --grad-end: #4f46e5;   /* Deep Indigo */
+            --bg-main: #f4f7f9;    /* Cool Light Grey */
+            --bg-card: #ffffff;
+            --text-heading: #0f172a;
+            --text-body: #64748b;
+            --card-border: #e2e8f0;
+            --shadow-base: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 40px -10px rgba(79, 70, 229, 0.15);
+            --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-heading);
+            line-height: 1.6;
+            /* Subtle background pattern */
+            background-image: linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .page-content {
+            padding: 100px 0;
+        }
+
+        /* =========================================
+           PURE CSS CASCADING LOAD ANIMATIONS
+           ========================================= */
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(60px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header, .advantage-card {
+            opacity: 0;
+            animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* =========================================
+           HEADER STYLES
+           ========================================= */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin: 0 0 20px 0;
+            letter-spacing: -1px;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+            border-radius: 5px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(6, 182, 212, 0.3);
+        }
+
+        /* =========================================
+           9-GRID LAYOUT
+           ========================================= */
+        .advantages-grid-9 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* =========================================
+           CARD UI STYLES
+           ========================================= */
+        .advantage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-base);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        /* Staggered load delays for the 9 cards */
+        .advantage-card:nth-child(1) { animation-delay: 0.1s; }
+        .advantage-card:nth-child(2) { animation-delay: 0.2s; }
+        .advantage-card:nth-child(3) { animation-delay: 0.3s; }
+        .advantage-card:nth-child(4) { animation-delay: 0.4s; }
+        .advantage-card:nth-child(5) { animation-delay: 0.5s; }
+        .advantage-card:nth-child(6) { animation-delay: 0.6s; }
+        .advantage-card:nth-child(7) { animation-delay: 0.7s; }
+        .advantage-card:nth-child(8) { animation-delay: 0.8s; }
+        .advantage-card:nth-child(9) { animation-delay: 0.9s; }
+
+        /* Animated Top Border Line */
+        .advantage-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        /* Card Hover Effects */
+        .advantage-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(79, 70, 229, 0.2);
+        }
+
+        .advantage-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* =========================================
+           ICON SPHERES
+           ========================================= */
+        .advantage-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 25px auto;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--grad-end);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        /* Icon Hover Effect */
+        .advantage-card:hover .advantage-icon {
+            background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+            color: #ffffff;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* =========================================
+           CARD TYPOGRAPHY
+           ========================================= */
+        .advantage-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-heading);
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .advantage-card p {
+            font-size: 1rem;
+            color: var(--text-body);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           RESPONSIVE BREAKPOINTS
+           ========================================= */
+        
+        /* Tablet Landscape & Small Laptops (1024px and below) */
+        @media (max-width: 1024px) {
+            .advantages-grid-9 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Tablet Portrait & Mobile (768px and below) */
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 60px 0;
+            }
+            .page-header {
+                margin-bottom: 40px;
+            }
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            .advantages-grid-9 {
+                grid-template-columns: 1fr; /* Stack vertically on phones */
+                gap: 20px;
+            }
+            .advantage-card {
+                padding: 30px 20px;
+            }
+            .advantage-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+            .advantage-card h3 {
+                font-size: 1.25rem;
+            }
+        }

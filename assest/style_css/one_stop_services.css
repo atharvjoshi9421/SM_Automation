@@ -1,0 +1,254 @@
+    /* =========================================
+           MODERN CLEAN SOFT-UI THEME VARIABLES
+           ========================================= */
+        :root {
+            --color-primary: #2563eb; /* Electric Blue */
+            --color-primary-hover: #1d4ed8;
+            --color-bg-white: #ffffff;
+            --color-bg-light: #f8fafc;
+            --text-dark: #0f172a; /* Deep Slate for Headings */
+            --text-muted: #475569; /* Slate for Body Text */
+            --border-light: #e2e8f0;
+            --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--color-bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            /* Optional: Extremely subtle dot pattern to make the white background feel premium */
+            background-image: radial-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .page-content {
+            padding: 100px 0;
+        }
+
+        /* =========================================
+           PURE CSS LOAD ANIMATIONS
+           ========================================= */
+        @keyframes fadeUpIn {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header, .lead-text, .service-category {
+            opacity: 0;
+            animation: fadeUpIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* =========================================
+           HEADER & OVERVIEW
+           ========================================= */
+        .page-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-dark) !important;
+            margin: 0 0 15px 0;
+            letter-spacing: -1px;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--color-primary) !important;
+            border-radius: 2px;
+            margin: 0 auto 30px auto;
+        }
+
+        .lead-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+            font-size: 1.15rem;
+            color: var(--text-muted) !important;
+            line-height: 1.8;
+            animation-delay: 0.1s;
+        }
+
+        /* =========================================
+           SERVICES GRID OVERRIDES (Making it Responsive)
+           ========================================= */
+        .service-categories {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 30px !important;
+            margin-top: 0 !important;
+        }
+
+        /* =========================================
+           SOFT-UI CARD OVERRIDES
+           ========================================= */
+        .service-category {
+            background: var(--color-bg-white) !important;
+            border: 1px solid var(--border-light) !important;
+            border-radius: 24px !important;
+            padding: 40px 35px !important;
+            box-shadow: var(--shadow-soft) !important;
+            transition: var(--transition) !important;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Staggered load animations */
+        .service-category:nth-child(1) { animation-delay: 0.2s; }
+        .service-category:nth-child(2) { animation-delay: 0.3s; }
+        .service-category:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Top highlight accent bar */
+        .service-category::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--color-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        /* Hover Effect: Lift and glow */
+        .service-category:hover {
+            transform: translateY(-10px) !important;
+            border-color: rgba(37, 99, 235, 0.2) !important;
+            box-shadow: var(--shadow-hover) !important;
+        }
+
+        .service-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Card Headers */
+        .service-category h3 {
+            color: var(--text-dark) !important;
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 15px !important;
+            letter-spacing: -0.5px;
+        }
+
+        /* Card Pill Labels */
+        .service-label {
+            display: inline-block !important;
+            background: rgba(37, 99, 235, 0.08) !important;
+            color: var(--color-primary) !important;
+            padding: 6px 16px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 0.85rem !important;
+            margin-bottom: 30px !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(37, 99, 235, 0.1) !important;
+        }
+
+        /* List Styles */
+        .service-category ul {
+            padding: 0 !important;
+            margin: 0 !important;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .service-category li {
+            position: relative !important;
+            padding-left: 32px !important;
+            margin-bottom: 0 !important;
+            color: var(--text-muted) !important;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            transition: color 0.3s ease, transform 0.3s ease !important;
+        }
+
+        /* Slide effect on hovering over a list item */
+        .service-category li:hover {
+            color: var(--color-primary) !important;
+            transform: translateX(6px) !important;
+        }
+
+        /* THE MAGIC TRICK: Hide "OK" and replace with Blue SVG Checkmark */
+        .service-category li span {
+            color: transparent !important; 
+            position: absolute !important;
+            left: 0 !important;
+            top: 2px !important;
+            width: 20px !important;
+            height: 20px !important;
+            /* Changed stroke color to Electric Blue (%232563eb) */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+        }
+
+        /* =========================================
+           RESPONSIVE BREAKPOINTS (Mobile, Tab, Laptop)
+           ========================================= */
+        
+        /* Tablets Landscape & Small Laptops */
+        @media (max-width: 1024px) {
+            .service-categories {
+                gap: 20px !important;
+            }
+            .service-category {
+                padding: 30px 20px !important;
+            }
+            .service-category h3 {
+                font-size: 1.4rem !important;
+            }
+        }
+
+        /* Tablets Portrait */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .service-categories {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .service-category:nth-child(3) {
+                grid-column: 1 / -1 !important; /* Makes 3rd card full width on tablet */
+            }
+        }
+
+        /* Mobile Phones */
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 60px 0;
+            }
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            .lead-text {
+                font-size: 1rem;
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+            .service-categories {
+                grid-template-columns: 1fr !important; /* Stack completely vertical */
+            }
+            .service-category:nth-child(3) {
+                grid-column: auto !important; /* Reset for mobile */
+            }
+            .service-category {
+                padding: 35px 25px !important;
+            }
+        }

@@ -1,0 +1,10 @@
+₹ 250000 / Piece 
+Automation	Fully Automatic
+Usage/Application	Solder Plating for PCB
+Brand	S.M. AUTOMATION
+Power Rating	10 kW
+Voltage	220 V
+Machine Type	HAL Machine
+Minimum order quantity: 1 Piece
+
+A PCB HAL machine, or Hot Air Leveling machine, is an essential piece of equipment used in the PCB manufacturing process to apply a layer of molten solder to the exposed copper surfaces of a printed circuit board (PCB).

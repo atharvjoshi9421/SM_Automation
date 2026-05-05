@@ -1,0 +1,400 @@
+     /* =========================================
+           EXECUTIVE INDUSTRIAL THEME VARIABLES
+           ========================================= */
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-hover: #1d4ed8;
+            --color-secondary: #0ea5e9;
+            --color-text-dark: #0f172a;
+            --color-text-light: #64748b;
+            --color-bg-main: #f8fafc;
+            --color-bg-card: #ffffff;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 15px 35px -5px rgba(37, 99, 235, 0.2);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--color-bg-main);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .page-content {
+            padding: 80px 0;
+        }
+
+        /* =========================================
+           PURE CSS LOAD ANIMATIONS (No JS Needed)
+           ========================================= */
+        @keyframes fadeUpIn {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Set initial states to hidden for the animation */
+        .founder-copy, .founder-visual, .founder-impact-card, 
+        .founder-story-grid article, .section-header, .founder-values-grid span {
+            opacity: 0;
+            animation: fadeUpIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* =========================================
+           FOUNDER HERO PANEL
+           ========================================= */
+        .founder-hero-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .founder-copy { animation-delay: 0.1s; }
+        
+        .section-kicker {
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        .founder-hero-panel h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            letter-spacing: -1px;
+            color: var(--color-text-dark);
+        }
+
+        .founder-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+            margin: 0 0 25px 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 20px;
+            display: inline-block;
+        }
+
+        .founder-lead {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 40px;
+        }
+
+        .founder-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: var(--color-bg-card);
+            color: var(--color-text-dark);
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Right Side - Visual / Logo Area */
+        .founder-visual {
+            background: var(--color-bg-card);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation-delay: 0.3s;
+        }
+
+        /* Optional floating effect for the logo inside */
+        .founder-visual img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            animation: float 6s ease-in-out infinite; /* Continuous floating effect */
+        }
+
+        .founder-quote {
+            position: relative;
+            background: #f8fafc;
+            padding: 24px 30px;
+            border-radius: 16px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .founder-quote p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--color-text-dark);
+            font-weight: 500;
+        }
+
+        /* =========================================
+           IMPACT GRID (Stats)
+           ========================================= */
+        .founder-impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 100px;
+        }
+
+        .founder-impact-card {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1e3a8a 100%);
+            color: var(--color-white);
+            padding: 35px 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .founder-impact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Staggered load animation delays */
+        .founder-impact-card:nth-child(1) { animation-delay: 0.2s; }
+        .founder-impact-card:nth-child(2) { animation-delay: 0.4s; }
+        .founder-impact-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .founder-impact-card strong {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .founder-impact-card span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           STORY / VISION / MISSION GRID
+           ========================================= */
+        .founder-story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+
+        .founder-story-grid article {
+            background: var(--color-bg-card);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .founder-story-grid article:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Staggered load animation delays */
+        .founder-story-grid article:nth-child(1) { animation-delay: 0.3s; }
+        .founder-story-grid article:nth-child(2) { animation-delay: 0.5s; }
+        .founder-story-grid article:nth-child(3) { animation-delay: 0.7s; }
+
+        /* Massive Background Numbers */
+        .founder-story-grid article span {
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(37, 99, 235, 0.04);
+            line-height: 1;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .founder-story-grid article:hover span {
+            color: rgba(37, 99, 235, 0.08);
+            transform: scale(1.1);
+        }
+
+        .founder-story-grid article h2 {
+            font-size: 1.75rem;
+            color: var(--color-text-dark);
+            margin: 0 0 20px 0;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .founder-story-grid article h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .founder-story-grid article:hover h2::after {
+            width: 60px; /* Line expands on hover */
+        }
+
+        .founder-story-grid article p {
+            color: var(--color-text-light);
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           VALUES SECTION
+           ========================================= */
+        .founder-values {
+            text-align: center;
+            background: var(--color-bg-card);
+            padding: 60px 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f1f5f9;
+        }
+
+        .section-header { animation-delay: 0.4s; }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            color: var(--color-text-dark);
+        }
+
+        .section-divider {
+            width: 50px;
+            height: 4px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            margin: 0 auto 40px auto;
+        }
+
+        .founder-values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        /* Dynamic Pill Badges */
+        .founder-values-grid span {
+            background: var(--color-bg-main);
+            color: var(--color-text-dark);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .founder-values-grid span:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Staggered badge load animations */
+        .founder-values-grid span:nth-child(1) { animation-delay: 0.5s; }
+        .founder-values-grid span:nth-child(2) { animation-delay: 0.6s; }
+        .founder-values-grid span:nth-child(3) { animation-delay: 0.7s; }
+        .founder-values-grid span:nth-child(4) { animation-delay: 0.8s; }
+        .founder-values-grid span:nth-child(5) { animation-delay: 0.9s; }
+
+        /* =========================================
+           RESPONSIVE (Mobile & Tablet)
+           ========================================= */
+        @media (max-width: 992px) {
+            .founder-hero-panel {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .founder-impact-grid,
+            .founder-story-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .founder-hero-panel h1 { font-size: 2.5rem; }
+            .founder-actions { flex-direction: column; }
+            .founder-visual { padding: 30px; }
+            .page-content { padding: 40px 0; }
+        }

@@ -1,0 +1,276 @@
+/* ==========================================================================
+   Product Page Layout Styles
+   ========================================================================== */
+
+/* Base Container */
+.product-page-layout {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fcfcfc;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Grid Layout (Desktop Side-by-Side) */
+.product-grid-amazon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   Image Section (Left Side)
+   ========================================================================== */
+.product-image-section {
+    /* Makes the image sticky so it follows the user as they scroll long specs */
+    position: sticky;
+    top: 20px; 
+    height: fit-content;
+}
+
+#mainProductImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    margin-bottom: 20px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+.product-thumb-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px; /* For scrollbar breathing room */
+}
+
+/* Thumbnail Buttons */
+.thumb-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.thumb-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.thumb-btn:hover {
+    border-color: #b3d4ff;
+}
+
+.thumb-btn.is-active {
+    border-color: #0056b3; /* Highlight active thumbnail */
+}
+
+/* ==========================================================================
+   Product Info Section (Right Side)
+   ========================================================================== */
+.product-info-section h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.product-main-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Features List */
+.product-features-list {
+    margin-bottom: 30px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0056b3;
+}
+
+.product-features-list h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product-features-list ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.product-features-list li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* Specifications Table */
+.product-specifications h3 {
+    font-size: 1.4rem;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.spec-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.spec-table tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+.spec-table tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Target the first column of the table (Property names) */
+.spec-table td:first-child {
+    font-weight: 600;
+    color: #444;
+    width: 40%;
+    background-color: #f8fafc;
+}
+
+/* First row highlight for Price */
+.spec-table tr:first-child td:last-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #b12704; /* Amazon-style price color */
+}
+
+/* ==========================================================================
+   Buttons (CTA & Catalogue)
+   ========================================================================== */
+.product-cta-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-large, 
+.btn-secondary-large {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-primary-large {
+    background-color: #0056b3;
+    color: #ffffff;
+    border: 2px solid #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+}
+
+.btn-primary-large:hover {
+    background-color: #004494;
+    border-color: #004494;
+    transform: translateY(-2px);
+}
+
+.btn-secondary-large {
+    background-color: transparent;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+}
+
+.btn-secondary-large:hover {
+    background-color: #f0f7ff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Full Description & Bottom Section
+   ========================================================================== */
+.product-full-description {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.product-full-description h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.catalogue-section {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #eaeaea;
+}
+
+/* ==========================================================================
+   Mobile Responsiveness
+   ========================================================================== */
+@media (max-width: 900px) {
+    .product-grid-amazon {
+        grid-template-columns: 1fr; /* Stack images on top of info */
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .product-image-section {
+        position: static; /* Disable sticky on mobile */
+    }
+
+    .product-info-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .product-cta-buttons {
+        flex-direction: column; /* Stack buttons on mobile */
+    }
+
+    .btn-primary-large, 
+    .btn-secondary-large {
+        width: 100%;
+    }
+    
+    .product-full-description {
+        padding: 20px;
+    }
+}

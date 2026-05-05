@@ -1,0 +1,210 @@
+        /* --- Global Footer Styles --- */
+:root {
+    --footer-bg: #1a1c1e;
+    --footer-text: #e0e0e0;
+    --footer-heading: #ffffff;
+    --accent-color: #007bff; /* Industrial Blue */
+    --accent-hover: #0056b3;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --transition: all 0.3s ease;
+}
+
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding-top: 60px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Grid Layout --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Specific widths for columns */
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+/* --- Typography & Elements --- */
+.footer-column h3 {
+    color: var(--footer-heading);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+    font-weight: 600;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-logo img {
+    max-width: 180px;
+    height: auto;
+    filter: brightness(1.1);
+}
+
+.footer-company-name {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--footer-heading);
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.footer-column p {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* --- Links & Lists --- */
+.footer-links, .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+/* --- Contact Section --- */
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 12px;
+}
+
+.footer-contact-icon {
+    color: var(--accent-color);
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.footer-contact a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Social Icons --- */
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.footer-social a {
+    background: rgba(255, 255, 255, 0.05);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.footer-social a:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Footer Bottom --- */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 25px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet View */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns for tablets */
+        gap: 30px;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Small Tablet / Large Phone */
+@media (max-width: 768px) {
+    .site-footer {
+        padding-top: 40px;
+    }
+}
+
+/* Phone View */
+@media (max-width: 576px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* 1 column for phones */
+        text-align: center;
+    }
+
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-contact li {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-links a:hover {
+        transform: scale(1.1);
+    }
+}

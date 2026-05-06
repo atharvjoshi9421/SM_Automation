@@ -3,155 +3,724 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assest/style_css/header.css">
+    <title>SM Automation Header</title>
+    <style>
+        /* =========================================
+           ROOT VARIABLES 
+           ========================================= */
+        :root {
+            --color-primary: #0056b3;
+            --color-primary-hover: #004494;
+            --color-secondary: #00a8ff;
+            --color-text-dark: #1e293b;
+            --color-bg-light: #f1f5f9;
+            --color-white: #ffffff;
+            --color-primary-glow: rgba(0, 86, 179, 0.3);
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           FIXED HEADER
+           ========================================= */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 1200;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s var(--transition-smooth);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .site-header.scrolled {
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* =========================================
+           HEADER WRAPPER
+           ========================================= */
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img { transform: scale(1.02); }
+
+        /* =========================================
+           DESKTOP NAV
+           ========================================= */
+        .main-nav {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 40px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list > li { position: relative; }
+        .nav-list > li.has-megamenu { position: static; }
+
+        .nav-link {
+            display: block;
+            padding: 10px 16px;
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--color-primary); }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 3px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after { width: 60%; }
+
+        /* Dropdown Arrow */
+        .has-dropdown > .nav-link { padding-right: 28px; }
+
+        .has-dropdown > .nav-link::before {
+            content: '';
+            position: absolute;
+            right: 8px; top: 50%;
+            transform: translateY(-50%);
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .has-dropdown:hover > .nav-link::before {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        /* =========================================
+           DROPDOWNS (Desktop)
+           ========================================= */
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            background: var(--color-white);
+            min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s var(--transition-smooth);
+            list-style: none;
+            padding: 10px 0;
+            border-top: 4px solid var(--color-primary);
+            z-index: 1300;
+        }
+
+        .dropdown-right > .dropdown-menu { left: auto; right: 0; }
+
+        .has-dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 12px 24px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu li a:hover {
+            background: var(--color-bg-light);
+            color: var(--color-primary);
+            border-left-color: var(--color-primary);
+            padding-left: 28px;
+        }
+
+        /* =========================================
+           MEGAMENU (Desktop)
+           ========================================= */
+        .megamenu-panel {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 96vw;
+            max-width: 1200px;
+            background: var(--color-white);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-radius: 0 0 12px 12px;
+            border-top: 4px solid var(--color-primary);
+            padding: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s var(--transition-smooth);
+            z-index: 1300;
+            max-height: calc(100vh - 90px);
+            overflow-y: auto;
+            list-style: none;
+        }
+
+        .megamenu-panel::-webkit-scrollbar { width: 6px; }
+        .megamenu-panel::-webkit-scrollbar-track { background: var(--color-bg-light); }
+        .megamenu-panel::-webkit-scrollbar-thumb { background: rgba(0,86,179,0.4); border-radius: 4px; }
+
+        .has-megamenu:hover > .megamenu-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .megamenu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .mega-col h4 {
+            color: var(--color-text-dark);
+            font-size: 13px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-bg-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mega-col ul { list-style: none; padding: 0; margin: 0; }
+
+        .mega-col ul li a {
+            padding: 7px 0;
+            color: #64748b;
+            font-size: 13.5px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .mega-col ul li a::before {
+            content: '→';
+            margin-right: 8px;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.2s ease;
+            color: var(--color-primary);
+            font-size: 12px;
+        }
+
+        .mega-col ul li a:hover {
+            color: var(--color-primary);
+            transform: translateX(4px);
+        }
+
+        .mega-col ul li a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* =========================================
+           HEADER CTA
+           ========================================= */
+        .header-cta { flex-shrink: 0; }
+
+        .btn-get-quote {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--color-primary-glow);
+        }
+
+        .btn-get-quote:hover {
+            transform: translateY(-2px);
+            background: var(--color-primary-hover);
+            box-shadow: 0 8px 25px rgba(0,86,179,0.4);
+        }
+
+        /* =========================================
+           MOBILE TOGGLE BUTTON
+           ========================================= */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 32px;
+            height: 26px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1500;
+            flex-shrink: 0;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-text-dark);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        /* Hamburger → X animation */
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: translateY(11.5px) rotate(45deg);
+        }
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: translateY(-11.5px) rotate(-45deg);
+        }
+
+        /* Overlay */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 1199;
+        }
+        .nav-overlay.active { display: block; }
+
+        /* =========================================
+           RESPONSIVE — TABLET & MOBILE
+           ========================================= */
+        @media (max-width: 1024px) {
+
+            .mobile-menu-toggle { display: flex; }
+            .header-cta { display: none; }
+
+            /* Slide-in panel */
+            .main-nav {
+                position: fixed;
+                top: 0; right: -105%;
+                width: 320px;
+                height: 100vh;
+                background: var(--color-white);
+                padding: 70px 0 30px;
+                box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+                transition: right 0.4s var(--transition-smooth);
+                overflow-y: auto;
+                z-index: 1400;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-right: 0;
+            }
+
+            .main-nav.active { right: 0; }
+
+            .nav-list {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                gap: 0;
+            }
+
+            .nav-list > li {
+                width: 100%;
+                border-bottom: 1px solid #e9eef4;
+            }
+
+            .nav-link {
+                padding: 16px 20px;
+                font-size: 15px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-link::after { display: none; }
+
+            /* Arrow stays inside on mobile */
+            .has-dropdown > .nav-link::before {
+                position: static;
+                transform: none;
+                margin-left: 6px;
+                transition: transform 0.3s ease;
+                flex-shrink: 0;
+            }
+
+            .has-dropdown.open > .nav-link::before {
+                transform: rotate(180deg);
+            }
+
+            /* Hide hover-based dropdowns on mobile */
+            .has-dropdown:hover > .dropdown-menu { opacity: 0; visibility: hidden; }
+            .has-megamenu:hover > .megamenu-panel { opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px); }
+
+            /* Mobile dropdown — hidden by default, shown via JS */
+            .dropdown-menu,
+            .megamenu-panel {
+                position: static !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                display: none;
+                background: #f8fafc;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                max-height: none !important;
+                overflow: visible !important;
+                min-width: unset !important;
+                border-top: none !important;
+            }
+
+            .dropdown-menu.open,
+            .megamenu-panel.open { display: block; }
+
+            .dropdown-menu li a {
+                padding: 13px 20px 13px 38px;
+                border-left: 3px solid transparent;
+                font-size: 14px;
+            }
+
+            .dropdown-menu li a:hover {
+                padding-left: 44px;
+            }
+
+            /* Megamenu mobile grid reset */
+            .megamenu-grid {
+                display: block;
+            }
+
+            .mega-col {
+                width: 100%;
+                border-bottom: 1px solid #e9eef4;
+            }
+
+            .mega-col h4 {
+                padding: 14px 20px 14px 38px;
+                margin: 0;
+                background: #edf2f7;
+                font-size: 12px;
+                border-bottom: 1px solid #dde3ea;
+                cursor: default;
+            }
+
+            .mega-col ul li a {
+                padding: 11px 20px 11px 50px;
+                font-size: 13.5px;
+                transform: none !important;
+            }
+
+            .mega-col ul li a::before { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .logo img { height: 40px; }
+            .main-nav { width: 88%; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ==========================================
-         START OF HEADER
-         ========================================== -->
-    <header id="main-header" class="site-header">
-        <div class="container">
-            <div class="header-wrapper">
-                <!-- Logo -->
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="assest/images/Company_logo.svg" alt="SM Automation">
-                    </a>
-                </div>
+<!-- Dark overlay behind the sidebar -->
+<div class="nav-overlay" id="navOverlay"></div>
 
-                <!-- Mobile Menu Toggle -->
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+<!-- ==========================================
+     HEADER
+     ========================================== -->
+<header id="main-header" class="site-header">
+    <div class="container">
+        <div class="header-wrapper">
 
-                <!-- Navigation -->
-                <nav class="main-nav" id="mainNavigation">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        
-                        <!-- About Us Dropdown -->
-                        <li class="has-dropdown">
-                            <a class="nav-link">About Us</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="company_profile.html">Company Profile</a></li>
-                                <li><a href="certificate.html">Certificate</a></li>
-                                <li><a href="quality_control.html">Quality Control & Inspection</a></li>
-                                <li><a href="packaging.html">Packaging and Transportation</a></li>
-                            </ul>
-                        </li>
-                        
-                        <!-- Brand Founder -->
-                        <li><a href="brand_founder.html" class="nav-link">Brand Founder</a></li>
-                        
-                        <!-- Products Megamenu -->
-                        <li class="has-dropdown has-megamenu">
-                            <a class="nav-link">Products</a>
-                            <div class="dropdown-menu megamenu-panel">
-                                <div class="megamenu-grid">
-                                    <div class="mega-col">
-                                        <h4>PCB Drilling Machines</h4>
-                                        <ul>
-                                            <li><a href="product-automatic-pcb-drilling-machine.html">Automatic PCB Drilling Machine</a></li>
-                                            <li><a href="product-automatic-tool-change-pcb-drilling-machine.html">Automatic Tool Change PCB Drilling Machine</a></li>
-                                            <li><a href="product-cnc-pcb-drilling-machine.html">CNC PCB Drilling Machine</a></li>
-                                            <li><a href="product-double-spindle-pcb-drilling-machine.html">Double Spindle PCB Drilling Machine</a></li>
-                                            <li><a href="product-pcb-drilling-machine.html">PCB Drilling Machine</a></li>
-                                            <li><a href="product-table-top-pcb-drilling-machine.html">Table Top PCB Drilling Machine</a></li>
-                                            <li><a href="product-three-spindle-cnc-pcb-drilling-machine.html">Three Spindle CNC PCB Drilling Machine</a></li>
-                                            <li><a href="product-2-spindle-pcb-drilling-machine.html">2 Spindle PCB Drilling Machine</a></li>
-                                            <li><a href="product-multi-spindle-pcb-drilling-machine.html">Multi Spindle PCB Drilling Machine</a></li>
-                                            <li><a href="product-single-spindle-pcb-drilling-machine.html">Single Spindle PCB Drilling Machine</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-col">
-                                        <h4>PCB Routing & Processing</h4>
-                                        <ul>
-                                            <li><a href="product-pcb-routing-machine.html">PCB Routing Machine</a></li>
-                                            <li><a href="product-automatic-tool-change-pcb-drilling-and-routing-machine.html">Automatic Tool Change PCB Drilling And Routing Machine</a></li>
-                                            <li><a href="product-pcb-router.html">Pcb Router</a></li>
-                                            <li><a href="product-automatic-3-axis-drilling-machine.html">Automatic 3 Axis Drilling Machine</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-col">
-                                        <h4>PCB Etching & Developing</h4>
-                                        <ul>
-                                            <li><a href="product-pcb-etching-machine.html">PCB Etching Machine</a></li>
-                                            <li><a href="product-batch-type-etching-machine.html">Batch Type Etching Machine</a></li>
-                                            <li><a href="product-pcb-costic-machine.html">PCB Costic Machine</a></li>
-                                            <li><a href="product-pcb-developer-machine.html">PCB Developer Machine</a></li>
-                                            <li><a href="product-pcb-hal-machine.html">PCB HAL Machine</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-col">
-                                        <h4>PCB Finishing</h4>
-                                        <ul>
-                                            <li><a href="product-pcb-brushing-machine.html">PCB Brushing Machine</a></li>
-                                            <li><a href="product-automatic-pcb-brushing-machine.html">Automatic PCB Brushing Machine</a></li>
-                                            <li><a href="product-pcb-roller-tinning-machine.html">PCB Roller Tinning Machine</a></li>
-                                            <li><a href="product-pcb-tin-stripping-machine.html">PCB Tin Stripping Machine</a></li>
-                                            <li><a href="product-pcb-v-grooving-machine.html">PCB V Grooving Machine</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-col">
-                                        <h4>CNC Machines</h4>
-                                        <ul>
-                                            <li><a href="product-cnc-wood-router.html">CNC Wood Router</a></li>
-                                            <li><a href="product-alluminium-heat-sink-cnc-drilling-machine.html">Alluminium Heat Sink CNC Drilling Machine</a></li>
-                                            <li><a href="product-vmc-machining-services.html">VMC Machining Services</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-col">
-                                        <h4>Specialized Equipment</h4>
-                                        <ul>
-                                            <li><a href="product-pcb-hot-air-oven.html">Pcb Hot Air Oven</a></li>
-                                            <li><a href="product-pcb-electroless-pth-machine.html">Pcb Electroless Pth Machine</a></li>
-                                            <li><a href="product-pcb-drill-ring-setter.html">PCB Drill Ring Setter</a></li>
-                                            <li><a href="product-pcb-rapid-prototyping-machine.html">Pcb Rapid Prototyping Machine</a></li>
-                                            <li><a href="product-pcb-prototyping-machine.html">Pcb Prototyping Machine</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-col">
-                                        <h4>Precision Engineering</h4>
-                                        <ul>
-                                            <li><a href="product-precision-cvc.html">CNC Vertical Machining Centre</a></li>
-                                            <li><a href="product-precision-lathe.html">Lathe Machine</a></li>
-                                            <li><a href="product-precision-sgm.html">Surface Grinding Machine</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        
-                        <!-- Services Dropdown -->
-                        <li class="has-dropdown dropdown-right">
-                            <a class="nav-link">Services</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="one_stop_services.html">One-Stop PCB Machine Services</a></li>
-                                <li><a href="advantage.html">Our Advantage</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Contact Us -->
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-
-                <!-- Header CTA -->
-                <div class="header-cta">
-                    <a href="get_quote.html" class="btn-get-quote">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        Get a Quote
-                    </a>
-                </div>
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assest/images/Company_logo-removebg-preview.png" alt="SM Automation">
+                </a>
             </div>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation -->
+            <nav class="main-nav" id="mainNavigation">
+                <ul class="nav-list">
+
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+
+                    <!-- About Us -->
+                    <li class="has-dropdown">
+                        <a class="nav-link">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="company_profile.html">Company Profile</a></li>
+                            <li><a href="certificate.html">Certificate</a></li>
+                            <li><a href="quality_control.html">Quality Control &amp; Inspection</a></li>
+                            <li><a href="packaging.html">Packaging and Transportation</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Brand Founder -->
+                    <li><a href="brand_founder.html" class="nav-link">Brand Founder</a></li>
+
+                    <!-- Products Megamenu -->
+                    <li class="has-dropdown has-megamenu">
+                        <a class="nav-link">Products</a>
+                        <div class="dropdown-menu megamenu-panel">
+                            <div class="megamenu-grid">
+
+                                <div class="mega-col">
+                                    <h4>PCB Drilling Machines</h4>
+                                    <ul>
+                                        <li><a href="product-automatic-pcb-drilling-machine.html">Automatic PCB Drilling Machine</a></li>
+                                        <li><a href="product-automatic-tool-change-pcb-drilling-machine.html">Automatic Tool Change PCB Drilling Machine</a></li>
+                                        <li><a href="product-cnc-pcb-drilling-machine.html">CNC PCB Drilling Machine</a></li>
+                                        <li><a href="product-double-spindle-pcb-drilling-machine.html">Double Spindle PCB Drilling Machine</a></li>
+                                        <li><a href="product-pcb-drilling-machine.html">PCB Drilling Machine</a></li>
+                                        <li><a href="product-table-top-pcb-drilling-machine.html">Table Top PCB Drilling Machine</a></li>
+                                        <li><a href="product-three-spindle-cnc-pcb-drilling-machine.html">Three Spindle CNC PCB Drilling Machine</a></li>
+                                        <li><a href="product-2-spindle-pcb-drilling-machine.html">2 Spindle PCB Drilling Machine</a></li>
+                                        <li><a href="product-multi-spindle-pcb-drilling-machine.html">Multi Spindle PCB Drilling Machine</a></li>
+                                        <li><a href="product-single-spindle-pcb-drilling-machine.html">Single Spindle PCB Drilling Machine</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-col">
+                                    <h4>PCB Routing &amp; Processing</h4>
+                                    <ul>
+                                        <li><a href="product-pcb-routing-machine.html">PCB Routing Machine</a></li>
+                                        <li><a href="product-automatic-tool-change-pcb-drilling-and-routing-machine.html">Automatic Tool Change PCB Drilling And Routing Machine</a></li>
+                                        <li><a href="product-pcb-router.html">PCB Router</a></li>
+                                        <li><a href="product-automatic-3-axis-drilling-machine.html">Automatic 3 Axis Drilling Machine</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-col">
+                                    <h4>PCB Etching &amp; Developing</h4>
+                                    <ul>
+                                        <li><a href="product-pcb-etching-machine.html">PCB Etching Machine</a></li>
+                                        <li><a href="product-batch-type-etching-machine.html">Batch Type Etching Machine</a></li>
+                                        <li><a href="product-pcb-costic-machine.html">PCB Costic Machine</a></li>
+                                        <li><a href="product-pcb-developer-machine.html">PCB Developer Machine</a></li>
+                                        <li><a href="product-pcb-hal-machine.html">PCB HAL Machine</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-col">
+                                    <h4>PCB Finishing</h4>
+                                    <ul>
+                                        <li><a href="product-pcb-brushing-machine.html">PCB Brushing Machine</a></li>
+                                        <li><a href="product-automatic-pcb-brushing-machine.html">Automatic PCB Brushing Machine</a></li>
+                                        <li><a href="product-pcb-roller-tinning-machine.html">PCB Roller Tinning Machine</a></li>
+                                        <li><a href="product-pcb-tin-stripping-machine.html">PCB Tin Stripping Machine</a></li>
+                                        <li><a href="product-pcb-v-grooving-machine.html">PCB V Grooving Machine</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-col">
+                                    <h4>CNC Machines</h4>
+                                    <ul>
+                                        <li><a href="product-cnc-wood-router.html">CNC Wood Router</a></li>
+                                        <li><a href="product-alluminium-heat-sink-cnc-drilling-machine.html">Aluminium Heat Sink CNC Drilling Machine</a></li>
+                                        <li><a href="product-vmc-machining-services.html">VMC Machining Services</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-col">
+                                    <h4>Specialized Equipment</h4>
+                                    <ul>
+                                        <li><a href="product-pcb-hot-air-oven.html">PCB Hot Air Oven</a></li>
+                                        <li><a href="product-pcb-electroless-pth-machine.html">PCB Electroless PTH Machine</a></li>
+                                        <li><a href="product-pcb-drill-ring-setter.html">PCB Drill Ring Setter</a></li>
+                                        <li><a href="product-pcb-rapid-prototyping-machine.html">PCB Rapid Prototyping Machine</a></li>
+                                        <li><a href="product-pcb-prototyping-machine.html">PCB Prototyping Machine</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="mega-col">
+                                    <h4>Precision Engineering</h4>
+                                    <ul>
+                                        <li><a href="product-precision-cvc.html">CNC Vertical Machining Centre</a></li>
+                                        <li><a href="product-precision-lathe.html">Lathe Machine</a></li>
+                                        <li><a href="product-precision-sgm.html">Surface Grinding Machine</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Services -->
+                    <li class="has-dropdown dropdown-right">
+                        <a class="nav-link">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="one_stop_services.html">One-Stop PCB Machine Services</a></li>
+                            <li><a href="advantage.html">Our Advantage</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Contact -->
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+                </ul>
+            </nav>
+
+            <!-- Header CTA -->
+            <div class="header-cta">
+                <a href="get_quote.html" class="btn-get-quote">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Get a Quote
+                </a>
+            </div>
+
         </div>
-    </header>
+    </div>
+</header>
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
+<script>
+    const toggleBtn   = document.getElementById('mobileMenuToggle');
+    const nav         = document.getElementById('mainNavigation');
+    const overlay     = document.getElementById('navOverlay');
+    const header      = document.getElementById('main-header');
+
+    /* ---------- open / close sidebar ---------- */
+    function openNav() {
+        nav.classList.add('active');
+        toggleBtn.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeNav() {
+        nav.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    toggleBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        nav.classList.contains('active') ? closeNav() : openNav();
+    });
+
+    /* Close when overlay (dark backdrop) is tapped */
+    overlay.addEventListener('click', closeNav);
+
+    /* ---------- mobile dropdown accordion ---------- */
+    document.querySelectorAll('.has-dropdown > .nav-link').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            if (window.innerWidth > 1024) return; // desktop: let CSS hover handle it
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            var parentLi = this.closest('.has-dropdown');
+            var dropdown = parentLi.querySelector('.dropdown-menu, .megamenu-panel');
+
+            /* Close all OTHER open dropdowns */
+            document.querySelectorAll('.has-dropdown.open').forEach(function (item) {
+                if (item !== parentLi) {
+                    item.classList.remove('open');
+                    var d = item.querySelector('.dropdown-menu, .megamenu-panel');
+                    if (d) d.classList.remove('open');
+                }
+            });
+
+            /* Toggle this one */
+            var isOpen = parentLi.classList.contains('open');
+            parentLi.classList.toggle('open', !isOpen);
+            if (dropdown) dropdown.classList.toggle('open', !isOpen);
+        });
+    });
+
+    /* ---------- scrolled class on header ---------- */
+    window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* ---------- close nav on resize to desktop ---------- */
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 1024) closeNav();
+    });
+</script>
 
 </body>
 </html>

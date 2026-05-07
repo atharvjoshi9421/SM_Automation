@@ -516,6 +516,41 @@ body {
             .logo img { height: 40px; }
             .main-nav { width: 88%; }
         }
+
+        /* =========================================
+   MOBILE MENU ALIGNMENT OVERRIDE
+   ========================================= */
+@media (max-width: 1024px) {
+    /* 1. Ensure the link container spreads across the full width */
+    .nav-list > li > .nav-link {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+    }
+
+    /* 2. Hide the old arrow that is pushing the text to the right */
+    .has-dropdown > .nav-link::before {
+        display: none !important;
+    }
+
+    /* 3. Recreate the arrow on the right side (after the text) */
+    .has-dropdown > .nav-link::after {
+        content: '';
+        display: inline-block;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 5px solid currentColor;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        margin-left: 10px;
+    }
+
+    /* 4. Rotate the new right-side arrow when the accordion opens */
+    .has-dropdown.open > .nav-link::after {
+        transform: rotate(180deg);
+    }
+}
         
 /* ==========================================================================
    Typography, Buttons & Utility
@@ -1179,6 +1214,36 @@ section {
 .hero-content { animation: fadeInUp 1s ease-out forwards; }
 .hero-machine-card { opacity: 0; animation: fadeInUp 1s ease-out 0.4s forwards; }
 
+/* =========================================
+   CLIENT MARQUEE FIXES (Height & Seamless Loop)
+   ========================================= */
+
+/* 1. Decrease the overall height by reducing padding */
+.clients-marquee-wrapper {
+    padding: 1.5rem 0 !important; /* Decreased from 3rem */
+}
+
+/* 2. Decrease the size of the client images */
+.client-card {
+    height: 60px !important; /* Decreased from 90px */
+    width: 120px !important; /* Decreased from 160px proportionally */
+    padding: 0.5rem !important;
+}
+
+/* 3. Force the track to wrap tightly around the 24 images */
+.clients-track {
+    width: max-content !important; 
+    padding-right: 0 !important; /* Remove right padding to prevent a gap in the loop */
+    animation: seamless-scroll 25s linear infinite !important;
+}
+
+/* 4. The magic seamless loop animation */
+/* Because there are 2 sets of 12 images, scrolling exactly 50% resets the loop invisibly */
+@keyframes seamless-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 /* ==========================================================================
    Responsive Breakpoints (Graceful scaling for laptops, tablets, and phones)
    ========================================================================== */
@@ -1275,5 +1340,97 @@ section {
         grid-column: 1 / -1;
         width: calc(50% - 1rem); /* Matches the width of the other cards */
         margin: 0 auto;
+    }
+}
+
+/* =========================================
+   FLOATING BUTTONS (WhatsApp & Back to Top)
+   ========================================= */
+.floating-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Ensures buttons never overlap */
+    z-index: 2000;
+}
+
+.floating-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white, #ffffff);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+/* Hover Animation */
+.floating-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* WhatsApp Styling */
+.whatsapp-btn {
+    background-color: #25D366; 
+}
+.whatsapp-btn:hover {
+    background-color: #1ebe57;
+}
+
+/* Back to Top Styling */
+.back-to-top {
+    background-color: var(--color-primary, #0056b3); 
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--color-primary-hover, #004494);
+    transform: translateY(-4px); /* Overrides the transform origin to ensure it floats up */
+}
+
+/* RESPONSIVE: Tablet */
+@media (max-width: 1024px) {
+    .floating-container {
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+/* RESPONSIVE: Phone */
+@media (max-width: 480px) {
+    .floating-container {
+        bottom: 15px;
+        right: 15px;
+        gap: 12px; /* Rigid spacing to prevent UI overlap on small screens */
+    }
+    .floating-btn {
+        width: 45px;
+        height: 45px;
+    }
+    .floating-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    .whatsapp-btn svg {
+        width: 24px;
+        height: 24px;
     }
 }

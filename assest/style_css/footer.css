@@ -208,3 +208,35 @@
         transform: scale(1.1);
     }
 }
+/* =========================================
+   MOBILE FOOTER ALIGNMENT OVERRIDE
+   ========================================= */
+@media (max-width: 576px) {
+    /* Reset grid text to left-aligned */
+    .footer-grid {
+        text-align: left !important;
+    }
+
+    /* Reset heading underlines to start from the left */
+    .footer-column h3::after {
+        left: 0 !important;
+        transform: none !important;
+    }
+
+    /* Align social icons to the left */
+    .footer-social {
+        justify-content: flex-start !important;
+    }
+
+    /* Keep contact icons and text in a row, rather than stacking them */
+    .footer-contact li {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+    }
+
+    /* Restore the slide-right hover effect instead of scaling up */
+    .footer-links a:hover {
+        transform: translateX(5px) !important;
+    }
+}

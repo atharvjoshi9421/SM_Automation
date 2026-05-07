@@ -79,3 +79,25 @@
     window.addEventListener('resize', function () {
         if (window.innerWidth > 1024) closeNav();
     });
+
+    /* =========================================
+   FLOATING BUTTONS LOGIC
+   ========================================= */
+const backToTopBtn = document.getElementById('backToTop');
+
+// Show/hide button based on scroll position (appears after 300px)
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+// Smooth scroll to top on click
+backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});

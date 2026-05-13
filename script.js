@@ -9,7 +9,7 @@
 
   // Execute on page load
   window.onload = function() {
-    loadComponent('navbar-placeholder', 'header.html');
+    // loadComponent('navbar-placeholder', 'header.html');
     loadComponent('footer-placeholder', 'footer.html');
   };
 

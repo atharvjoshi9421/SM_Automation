@@ -26,6 +26,34 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+       /* =========================================
+           ROOT VARIABLES 
+           ========================================= */
+        :root {
+            --color-primary: #0056b3;
+            --color-primary-hover: #004494;
+            --color-secondary: #00a8ff;
+            --color-text-dark: #1e293b;
+            --color-bg-light: #f1f5f9;
+            --color-white: #ffffff;
+            --color-primary-glow: rgba(0, 86, 179, 0.3);
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
         /* =========================================
            FIXED HEADER

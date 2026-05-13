@@ -9,7 +9,7 @@
 
   // Execute on page load
   window.onload = function() {
-    loadComponent('navbar-placeholder', 'header.html');
+    // loadComponent('navbar-placeholder', 'header.html');
     loadComponent('footer-placeholder', 'footer.html');
   };
 
@@ -77,7 +77,6 @@
     window.addEventListener('resize', function () {
         if (window.innerWidth > 1024) closeNav();
     });
-
     /* =========================================
    FLOATING BUTTONS LOGIC
    ========================================= */

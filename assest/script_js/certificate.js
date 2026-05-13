@@ -9,11 +9,11 @@
 
   // Execute on page load
   window.onload = function() {
-    loadComponent('navbar-placeholder', 'header.html');
+  //  loadComponent('navbar-placeholder', 'header.html');
     loadComponent('footer-placeholder', 'footer.html');
   };
 
-    const toggleBtn   = document.getElementById('mobileMenuToggle');
+   const toggleBtn   = document.getElementById('mobileMenuToggle');
     const nav         = document.getElementById('mainNavigation');
     const overlay     = document.getElementById('navOverlay');
     const header      = document.getElementById('main-header');
